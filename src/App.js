@@ -9,20 +9,29 @@ import {
 import LoginScreen from './screens/LoginScreen';
 import firebase from './firebase';
 import {auth} from './firebase'
+import {useDispatch} from 'react-redux'
+import { login, logout } from './features/userSlice';
 
 function App() {
   const user=null;
+  // const dispatch = useDispatch()
 
-  useEffect(()=>{
-    const unsubscribe=auth.onAuthStateChanged(userAuth => {
-      if (userAuth){
-        //logged in
-      } else {
-        // logged out
-      }
-    })
-    return unsubscribe
-  },[])
+  // useEffect(()=>{
+  //   const unsubscribe=auth.onAuthStateChanged(userAuth => {
+  //     if (userAuth){
+  //       //logged in
+  //      console.log(userAuth);
+  //      dispatch(login({
+  //        uid: userAuth.uid,
+  //        email: userAuth.email
+  //      }))
+  //     } else {
+  //       // logged out
+  //       dispatch(logout)
+  //     }
+  //   })
+  //   return unsubscribe
+  // },[])
   return (
     <div className="app">
      <Router>
